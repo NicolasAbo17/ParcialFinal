@@ -1,14 +1,6 @@
 import React from "react";
-import { FormattedPlural, FormattedNumber, FormattedMessage} from "react-intl";
-
 
 export default function PokemonesList(props) {
-
-  /*const rowEventHandlersChild = (pokemonDesc, pokemonCast, pokemonImg, e) => {
-    var sendInfo = [pokemonDesc, pokemonCast, pokemonImg, props.pokemon.name]
-    props.setPokemonSelected(sendInfo);
-  }*/
-  
   return (
     <tr >
       <th scope="row">{props.pokemon.id}</th>
@@ -18,13 +10,13 @@ export default function PokemonesList(props) {
       <td>{props.pokemon.height}</td>
       <td>{props.pokemon.weight}</td>
       <td>
-      {props.pokemon.type.map((ma) => {
-              return (
-                <div class="col-12">
-                  <span class="badge badge-secondary">{ma}</span>
-                </div>
-              );
-            })}
+        {props.pokemon.type.map((actualType) => {
+          return (
+            <div className="col-12">
+              <span className="badge badge-secondary">{actualType}</span>
+            </div>
+          );
+        })}
       </td>
     </tr>
   );

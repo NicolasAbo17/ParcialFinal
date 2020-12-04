@@ -14,8 +14,8 @@ const messages = {
   'en': messages_en
 };
 
-/*const language = navigator.language.split(/[-_]/)[0];*/
-const language = 'en'; 
+const language = navigator.language.split(/[-_]/)[0];
+console.log(language);
 
 ReactDOM.render(
   <IntlProvider locale={language} messages={messages[language]}>

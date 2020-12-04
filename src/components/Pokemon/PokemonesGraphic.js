@@ -4,26 +4,25 @@ import * as d3 from "d3";
 export default function PokemonesGraphic(props) {
 
     const configTable = async () => {
-        if(props.firstclick===0){
         const data = props.pokemones;
-        const width = 700;
+        const width = 800;
         const height = 500;
         const margin = { top: 20, left: 80, bottom: 40, right: 10 };
         const iwidth = width - margin.left - margin.right;
         const iheight = height - margin.top - margin.bottom;
 
-        const svg = d3.select("#views-table")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+        const svg = d3.select("#height-table")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
 
         let higher = 0;
 
         data.forEach(pokemon => {
             if (pokemon.height > higher) {
-                higher = pokemon.pokemon;
+                higher = pokemon.height;
             }
         });
 
@@ -40,7 +39,7 @@ export default function PokemonesGraphic(props) {
 
         bars.enter().append("rect")
             .attr("class", "bar")
-            .style("fill", "red")
+            .style("fill", "steelblue")
             .attr("x", pokemon => x(pokemon.name))
             .attr("y", pokemon => y(pokemon.height))
             .attr("height", pokemon => iheight - y(pokemon.height))
@@ -54,16 +53,15 @@ export default function PokemonesGraphic(props) {
         svg.append("g")
             .classed("y--axis", true)
             .call(d3.axisLeft(y));
-    }
-};
+    };
 
     useEffect(() => {
-        if(props.pokemones.length > 0){
+        if (props.pokemones.length > 0) {
             configTable();
         }
     });
 
     return (
-        <div id="views-table"></div>
+        <div id="height-table"></div>
     );
 }

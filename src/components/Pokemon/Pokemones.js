@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import PokemonesList from "./PokemonesList";
 import { FormattedMessage } from "react-intl";
 import PokemonesGraphic from "./PokemonesGraphic";
-import "./Pokemones.css";
 
 export default function Pokemones(props) {
     const urlEspaniol = "https://gist.githubusercontent.com/jhonatan89/e379fadf8ed0f5381a2d8f8f3dea90c3/raw/e2bc20df02828d297f99558551e37959ac97a6f8/pokemon-es.json";
@@ -41,18 +40,12 @@ export default function Pokemones(props) {
         localStorage.setItem("pokemones", JSON.stringify(data));
     };
 
-    /*const setPokemonSelected = (pokemonInfo) => {
-        setValue(pokemonInfo);
-        setFirstClick(!firstclick);
-        setClick(!click);
-    };*/
-
     return (
         <main>
             <section className="container-pokemones-table max-w__table">
                 <div className="bd-grid__table">
                     <table className="table table-striped">
-                        <thead class="thead-dark" >
+                        <thead className="thead-dark" >
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">
@@ -89,7 +82,7 @@ export default function Pokemones(props) {
                                 </th>
                                 <th scope="col">
                                     <FormattedMessage
-                                        id="table.Weight"
+                                        id="table.weight"
                                         defaultMessage="Weight"
                                         description="Weight of the pokemon"
                                         values={{ what: "react-intl" }}
@@ -97,7 +90,7 @@ export default function Pokemones(props) {
                                 </th>
                                 <th scope="col">
                                     <FormattedMessage
-                                        id="table.Type"
+                                        id="table.type"
                                         defaultMessage="Type"
                                         description="Type of the pokemon"
                                         values={{ what: "react-intl" }}
@@ -109,7 +102,6 @@ export default function Pokemones(props) {
                             {messages.map((ma) => {
                                 return (
                                     <PokemonesList
-                                        /*setPokemonSelected={setPokemonSelected}*/
                                         pokemon={ma}
                                         key={ma.id}
                                     />
@@ -119,21 +111,10 @@ export default function Pokemones(props) {
                     </table>
 
                 </div>
-                {/*<div className={firstclick === 0 ? "display__pokemones" : ""}>
-                    <div className="card width__card_pa">
-                        <img className="card-img-top" src={value[2]} alt={value[2]} />
-                        <div className="card-body">
-                            <h3>{value[3]}</h3>
-                            <p className="card-text">{value[0]}</p>
-                            <h4>Cast: {value[1]}</h4>
-                        </div>
-                    </div>
-                </div>*/}
             </section>
             <section>
                 <PokemonesGraphic
                     pokemones={messages}
-                    firstclick={firstclick}
                 />
             </section>
         </main>

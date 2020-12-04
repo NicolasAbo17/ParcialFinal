@@ -1,0 +1,8 @@
+{
+    "table.image": "Imagen",
+    "table.name": "Nombre",
+    "table.description": "Descripción",
+    "table.height": "Altura",
+    "table.weight": "Peso",
+    "table.type": "Tipo"
+}

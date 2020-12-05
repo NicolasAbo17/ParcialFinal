@@ -7,12 +7,10 @@ export default function Pokemones(props) {
     const urlEspaniol = "https://gist.githubusercontent.com/jhonatan89/e379fadf8ed0f5381a2d8f8f3dea90c3/raw/e2bc20df02828d297f99558551e37959ac97a6f8/pokemon-es.json";
     const urlIngles = "https://gist.githubusercontent.com/jhonatan89/2089276d3ce0faceff8e55fc3459b818/raw/30ee1a77b3e328108faaaa9aaac6f2ddaa3d3711/pokemons-en.json ";
 
+    // eslint-disable-next-line no-unused-vars
     const [locale, setLocale] = useState(props.lang);
     const [messages, setMessages] = useState([]);
-    const [click, setClick] = useState(false);
-    const [firstclick, setFirstClick] = useState(0);
-    const [value, setValue] = useState([]);
-
+    
     useEffect(() => {
         if (!navigator.onLine) {
             if (localStorage.getItem("pokemones") === "") {
@@ -23,6 +21,7 @@ export default function Pokemones(props) {
         } else {
             fetchData();
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const fetchData = async () => {

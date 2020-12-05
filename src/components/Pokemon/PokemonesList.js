@@ -12,8 +12,8 @@ export default function PokemonesList(props) {
       <td>
         {props.pokemon.type.map((actualType) => {
           return (
-            <div className="col-12">
-              <span className="badge badge-secondary">{actualType}</span>
+            <div className="col-12" key={"div"+actualType+props.pokemon.id}>
+              <span className="badge badge-secondary" key={"div"+actualType+props.pokemon.id} >{actualType}</span>
             </div>
           );
         })}
